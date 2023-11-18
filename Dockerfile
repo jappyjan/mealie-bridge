@@ -27,13 +27,16 @@ COPY . .
 # [optional] tests & build
 ENV NODE_ENV=production
 RUN bun run build
-
-# copy production dependencies and source code into final image
-FROM base AS release
-WORKDIR /usr
-COPY --from=prerelease /usr/dist /usr/dist
-
-# run the app
 USER bun
 EXPOSE 8080/tcp
-ENTRYPOINT [ "bun", "run", "/usr/dist/index.js" ]
+ENTRYPOINT [ "bun", "run", "dev" ]
+
+# copy production dependencies and source code into final image
+#FROM base AS release
+#WORKDIR /usr
+#COPY --from=prerelease /usr/dist /usr/dist
+
+# run the app
+#USER bun
+#EXPOSE 8080/tcp
+#ENTRYPOINT [ "bun", "run", "/usr/dist/index.js" ]
