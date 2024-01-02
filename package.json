@@ -1,11 +1,11 @@
 {
-  "name": "mealie-bridge",
+  "name": "bring-api",
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts",
     "build": "bun build ./src/index.ts --target=bun --outfile=dist/index.js",
-    "push-docker-image": "docker build -t jappyjan/mealie-bridge . && docker tag jappyjan/mealie-bridge jappyjan/mealie-bridge:latest && docker push jappyjan/mealie-bridge:latest"
+    "push-docker-image": "docker build -t jappyjan/bring-api . && docker tag jappyjan/bring-api jappyjan/bring-api:latest && docker push jappyjan/bring-api:latest"
   },
   "dependencies": {
     "@elysiajs/swagger": "^0.7.4",

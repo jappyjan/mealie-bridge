@@ -25,16 +25,20 @@ export async function getBringApi() {
 export async function fetchAllLists () {
     const bring = await getBringApi();
 
-    return await bring.loadLists();
+    const response = await bring.loadLists();
+
+    return response.lists;
 }
 
 export async function fetchAllItemsFromList(listId: string) {
     const bring = await getBringApi();
 
-    return await bring.getItems(listId);
+    const response = await bring.getItems(listId);
+
+    return response.purchase;
 }
 
-export async function addItem(listId: string, name: string, specification?: string) {
+export async function addItemToList(listId: string, name: string, specification?: string) {
     const bring = await getBringApi();
 
     return await bring.saveItem(
